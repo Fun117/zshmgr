@@ -2,27 +2,49 @@
 
 REPO_URL="https://github.com/Fun117/zshmgr"
 INSTALL_DIR="${HOME}/.zshmgr"
+BIN_DIR="/usr/local/bin"
+BIN_FILE="zshmgr.zsh"
+COMMAND_NAME="zshmgr"
+
+# Function to clean up and exit with error
+function cleanup_and_exit {
+  echo "Installation failed. Cleaning up..."
+  rm -rf $INSTALL_DIR
+  rm -rf $TEMP_DIR
+  exit 1
+}
 
 # Clone necessary files into a temporary directory
 TEMP_DIR=$(mktemp -d)
-git clone --depth 1 --filter=blob:none --sparse $REPO_URL $TEMP_DIR
-cd $TEMP_DIR
-git sparse-checkout init --cone
-git sparse-checkout set packages .gitignore install.sh packages.json README.md zshmgr.zsh
+git clone --depth 1 $REPO_URL $TEMP_DIR || cleanup_and_exit
+cd $TEMP_DIR || cleanup_and_exit
+
+# Ensure that only the required files are copied
+FILES_TO_COPY=("install.sh" "README.md" "zshmgr.zsh")
 
 # Create installation directory if it doesn't exist
-mkdir -p $INSTALL_DIR
+mkdir -p $INSTALL_DIR || cleanup_and_exit
 
 # Copy necessary files to the installation directory
-cp -r packages $INSTALL_DIR/
-cp .gitignore install.sh packages.json README.md zshmgr.zsh $INSTALL_DIR/
+for file in "${FILES_TO_COPY[@]}"; do
+  cp $file $INSTALL_DIR/ || cleanup_and_exit
+done
+
+# Create packages directory in the installation directory
+mkdir -p $INSTALL_DIR/packages || cleanup_and_exit
+
+# Set execute permissions for zshmgr.zsh
+chmod +x $INSTALL_DIR/$BIN_FILE || cleanup_and_exit
+
+# Copy zshmgr.zsh to /usr/local/bin and create a symlink
+sudo cp $INSTALL_DIR/$BIN_FILE $BIN_DIR/$COMMAND_NAME || cleanup_and_exit
 
 # Add to PATH
 if ! grep -q 'export PATH=$PATH:$HOME/.zshmgr' $HOME/.zshrc; then
   echo 'export PATH=$PATH:$HOME/.zshmgr' >> $HOME/.zshrc
 fi
 
-# Clean up
+# Clean up temporary directory
 cd ~
 rm -rf $TEMP_DIR
 
