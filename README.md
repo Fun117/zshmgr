@@ -1,42 +1,33 @@
-# zshmgr
+<div align="center">
+    <img src="https://zshmgr.vercel.app/favicon/favicon.ico"/>
+    <h1>Zshmgr</h1>
+</div>
 
-`zshmgr` は、Zsh用の簡単なパッケージマネージャーです。パッケージのインストール、アンインストール、アップデート、リスト表示が可能です。
+## Supported Operating Systems
 
-## 対応OS
-
-`zshmgr` は、以下のオペレーティングシステムで動作します：
+Zshmgr operates on the following operating systems:
 
 - macOS
 - Linux
-- Windows（WSLを使用）
+- Windows (using WSL)
 
-## インストール
+## Overview
 
-### 依存関係
+Zshmgr is a simple package manager for Zsh. It allows users to easily install, uninstall, update, and list packages. The tool is designed to work seamlessly with GitHub repositories, making it easy to manage your Zsh scripts and tools.
 
-`zshmgr` は以下のコマンドに依存しています：
+### Features
 
-- `git`
-- `jq`
+- **Install Packages**: Easily install packages from GitHub repositories.
+- **Uninstall Packages**: Remove installed packages cleanly.
+- **Update Packages**: Keep your packages up to date with the latest version.
+- **List Packages**: View all installed packages.
 
-これらのコマンドがインストールされていることを確認してください。
+### Documentation
 
-### インストール方法
+For detailed usage instructions and how to create demo packages, please visit the [Zshmgr Documentation Site](https://zshmgr.vercel.app).
 
-### `install.sh` スクリプトをダウンロードして実行します：
+## Contact
 
-```bash
-curl -O https://raw.githubusercontent.com/fun117/zshmgr/main/install.sh
-chmod +x install.sh
-./install.sh
-```
+For any questions or feedback, please contact us via [GitHub Discussions](https://github.com/Fun117/zshmgr/discussions).
 
-これで `zshmgr` がインストールされ、システム全体で利用可能になります。
-
-### ドキュメント
-
-詳しい使い方やデモパッケージの作成方法については、[Zshmgrドキュメントサイト](https://zshmgr.vercel.app) をご覧ください。
-
-### ライセンス
-
-このプロジェクトはMITライセンスの下で公開されています。詳細はLICENSEファイルを参照してください。
+Thank you for using Zshmgr!
