@@ -1,0 +1,58 @@
+---
+title: Package Operations and Management
+---
+
+import { Callout, Steps, FileTree, Tabs, Cards, Card } from 'nextra/components'
+
+# Package Operations and Management
+
+### Installing a Package
+
+<Tabs items={["main", "demo"]} defaultIndex={0}>
+  <Tabs.Tab>
+```bash
+zshmgr install <GitHubUsername/RepositoryName>
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```bash
+zshmgr install fun117/zshmgr-demo-package
+```
+  </Tabs.Tab>
+</Tabs>
+
+### Uninstalling a Package
+
+<Tabs items={["main", "demo"]} defaultIndex={0}>
+  <Tabs.Tab>
+```bash
+zshmgr uninstall <GitHubUsername/RepositoryName>
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```bash
+zshmgr uninstall fun117/zshmgr-demo-package
+```
+  </Tabs.Tab>
+</Tabs>
+
+### Updating a Package
+
+<Tabs items={["main", "demo"]} defaultIndex={0}>
+  <Tabs.Tab>
+```bash
+zshmgr update <GitHubUsername/RepositoryName>
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```bash
+zshmgr update fun117/zshmgr-demo-package
+```
+  </Tabs.Tab>
+</Tabs>
+
+### Listing Installed Packages
+
+```bash
+zshmgr list
+```

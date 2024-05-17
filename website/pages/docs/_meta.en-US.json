@@ -1,0 +1,23 @@
+{
+  "introduction": "Introduction",
+  "packages": "Package Operations and Management",
+  "-- Development": {
+    "type": "separator",
+    "title": "Development"
+  },
+  "create-packages": "Creating Custom Packages",
+  "-- More": {
+    "type": "separator",
+    "title": "More"
+  },
+  "about-link": {
+    "title": "About Zshmgr",
+    "href": "/about"
+  },
+  "license": "License",
+  "nextra-link": {
+    "title": "Nextra ↗",
+    "href": "https://nextra.site",
+    "newWindow": true
+  }
+}

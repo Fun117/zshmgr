@@ -1,0 +1,59 @@
+---
+title: Introduction
+---
+
+import { Callout, Steps, FileTree, Tabs, Cards, Card } from 'nextra/components'
+import { Package } from 'lucide-react';
+
+# Introduction
+
+`zshmgr` is a simple package manager for Zsh. It allows you to install, uninstall, update, and list packages.
+
+### Dependencies
+
+`zshmgr` depends on the following commands, so please make sure they are installed:
+
+- [git](https://git-scm.com/downloads)
+- [jq](https://jqlang.github.io/jq/download/)
+
+<Tabs items={["Windows", "macOS", "Linux"]}>
+  <Tabs.Tab>
+    <Callout type="warning" emoji="⚠️">
+      For Windows, you need to use `WSL` to run `zshmgr`.
+    </Callout>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <></>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <></>
+  </Tabs.Tab>
+</Tabs>
+
+## Installation
+
+### Installation Steps
+
+<Steps>
+
+### Clone the `zshmgr` repository
+
+```bash
+git clone https://github.com/fun117/zshmgr.git
+cd zshmgr
+```
+
+### Run the `install.sh` script to install `zshmgr`
+
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+</Steps>
+
+Now, `zshmgr` is installed and available system-wide.
+
+## License
+
+This project is released under the MIT License. For more details, please refer to the LICENSE file.

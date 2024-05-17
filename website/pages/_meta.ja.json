@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title": "ホーム",
+    "type": "page"
+  },
+  "docs": {
+    "title": "ドキュメント",
+    "type": "page"
+  },
+  "about": {
+    "title": "概要",
+    "type": "page"
+  }
+}

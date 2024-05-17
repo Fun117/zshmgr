@@ -1,0 +1,93 @@
+---
+title: 自作のパッケージを作成して公開する
+---
+
+import { Callout, Steps, FileTree, Tabs } from 'nextra/components'
+
+# 自作のパッケージを作成して公開する
+
+## デモパッケージの作成
+
+以下は、`zshmgr` でインストール可能なデモパッケージの作成方法です。
+
+### ディレクトリ構造
+
+<FileTree>
+  <FileTree.Folder name="package_name" defaultOpen>
+    <FileTree.Folder name="bin" defaultOpen>
+      <FileTree.File name="script_name.sh" />
+    </FileTree.Folder>
+    <FileTree.File name="README.md" />
+    <FileTree.File name="install.sh" />
+    <FileTree.File name="uninstall.sh" />
+  </FileTree.Folder>
+</FileTree>
+
+### メインスクリプト
+```bash filename="bin/script_name.sh"
+#!/bin/bash
+
+echo "package_name からこんにちは!"
+```
+
+### インストールスクリプト
+<Callout type="warning" emoji="⚠️">
+  インストールスクリプト `install.sh` ファイルをルートディレクトリに必ず作成してください。このファイルはパッケージがインストールされるときに実行されます。
+</Callout>
+
+```bash filename="install.sh"
+#!/bin/bash
+
+# スクリプトのディレクトリに移動
+cd "$(dirname "$0")"
+
+# インストールディレクトリ
+INSTALL_DIR="/usr/local/bin"
+
+# 実行可能ファイルをコピー
+echo "Installing script_name.sh to $INSTALL_DIR..."
+sudo cp bin/script_name.sh $INSTALL_DIR/script_name
+sudo chmod +x $INSTALL_DIR/script_name
+echo "package_name has been installed. You can now use the 'script_name' command."
+```
+
+### アンインストールスクリプト
+
+<Callout type="warning" emoji="⚠️">
+  アンインストールスクリプト `uninstall.sh` ファイルをルートディレクトリに必ず作成してください。このファイルはパッケージがアンインストールされるときに実行されます。
+</Callout>
+
+<Callout type="error" emoji="️🚫">
+  `sudo rm *` このコードを実行するとユーザーの重要なデータが削除される可能性があるため使用をしないでください。
+</Callout>
+
+```bash filename="uninstall.sh"
+#!/bin/bash
+
+# スクリプトのディレクトリに移動
+cd "$(dirname "$0")"
+
+# インストールディレクトリ
+INSTALL_DIR="/usr/local/bin"
+
+# 実行可能ファイルを削除
+echo "Uninstalling script_name.sh from $INSTALL_DIR..."
+sudo rm $INSTALL_DIR/script_name
+echo "package_name has been uninstalled."
+```
+
+### リポジトリの作成
+
+1. GitHub で新しいリポジトリを作成します。例：`package_name`
+2. 上記のファイル構造を作成し、リポジトリにプッシュします。
+
+### デモパッケージのインストールと実行
+
+`zshmgr` を使ってデモパッケージをインストールし、インストール後に `script_name` コマンドが実行できるか確認します。
+
+```bash
+zshmgr install user/package_name
+script_name
+```
+
+これで、デモパッケージが正しくインストールされ、ターミナルで直接実行できるようになります。

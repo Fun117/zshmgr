@@ -1,0 +1,31 @@
+/packages.json
+
+# dependencies
+/node_modules
+/website/node_modules
+
+# testing
+/coverage
+/website/coverage
+
+# next.js
+/.next/
+/website/.next/
+
+# debug
+npm-debug.log*
+/website/npm-debug.log*
+
+yarn-debug.log*
+/website/yarn-debug.log*
+
+yarn-error.log*
+/website/yarn-error.log*
+
+# local env files
+.env*.local
+/website/.env*.local
+
+# test files
+/test
+/website/test

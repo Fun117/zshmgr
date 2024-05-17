@@ -1,0 +1,57 @@
+---
+title: はじめに
+---
+
+import { Callout, Steps, Tabs } from 'nextra/components'
+
+# はじめに
+
+`zshmgr` は、Zsh 用のシンプルなパッケージマネージャーです。パッケージのインストール、アンインストール、アップデート、およびリスト表示が可能です。
+
+### 依存関係
+
+`zshmgr` は以下のコマンドに依存しています。これらのコマンドがインストールされていることを確認してください：
+
+- [git](https://git-scm.com/downloads)
+- [jq](https://jqlang.github.io/jq/download/)
+
+<Tabs items={["Windows", "macOS", "Linux"]}>
+  <Tabs.Tab>
+    <Callout type="warning" emoji="⚠️">
+      Windowsの場合は `WSL` を使用して実行する必要があります。
+    </Callout>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <></>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <></>
+  </Tabs.Tab>
+</Tabs>
+
+## インストール
+
+### インストール方法
+
+<Steps>
+
+### `zshmgr` リポジトリをクローンします
+
+```bash
+git clone https://github.com/fun117/zshmgr.git
+cd zshmgr
+```
+
+### `install.sh` スクリプトを実行して `zshmgr` をインストールします
+
+```bash
+chmod +x install.sh
+./install.sh
+```
+</Steps>
+
+これで zshmgr がインストールされ、システム全体で利用可能になります。
+
+## ライセンス
+
+このプロジェクトは MIT ライセンスの下で公開されています。詳細は LICENSE ファイルを参照してください。

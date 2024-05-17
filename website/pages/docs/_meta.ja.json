@@ -1,0 +1,23 @@
+{
+  "introduction": "はじめに",
+  "packages": "パッケージの操作と管理",
+  "-- Development": {
+    "type": "separator",
+    "title": "開発"
+  },
+  "create-packages": "自作パッケージの作成",
+  "-- More": {
+    "type": "separator",
+    "title": "もっと"
+  },
+  "about-link": {
+    "title": "概要 Zshmgr",
+    "href": "/about"
+  },
+  "license": "ライセンス",
+  "nextra-link": {
+    "title": "Nextra ↗",
+    "href": "https://nextra.site",
+    "newWindow": true
+  }
+}

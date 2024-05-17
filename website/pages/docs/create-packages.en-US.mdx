@@ -1,0 +1,93 @@
+---
+title: Creating and Publishing Your Own Package
+---
+
+import { Callout, Steps, FileTree, Tabs } from 'nextra/components'
+
+# Creating and Publishing Your Own Package
+
+## Creating a Demo Package
+
+Here’s how to create a demo package that can be installed with `zshmgr`.
+
+### Directory Structure
+
+<FileTree>
+  <FileTree.Folder name="package_name" defaultOpen>
+    <FileTree.Folder name="bin" defaultOpen>
+      <FileTree.File name="script_name.sh" />
+    </FileTree.Folder>
+    <FileTree.File name="README.md" />
+    <FileTree.File name="install.sh" />
+    <FileTree.File name="uninstall.sh" />
+  </FileTree.Folder>
+</FileTree>
+
+### Main Script
+```bash filename="bin/script_name.sh"
+#!/bin/bash
+
+echo "Hello from package_name!"
+```
+
+### Installation Script
+<Callout type="warning" emoji="⚠️">
+  Make sure to create an `install.sh` file in the root directory. This file will be executed when the package is installed.
+</Callout>
+
+```bash filename="install.sh"
+#!/bin/bash
+
+# Move to the script's directory
+cd "$(dirname "$0")"
+
+# Installation directory
+INSTALL_DIR="/usr/local/bin"
+
+# Copy the executable file
+echo "Installing script_name.sh to $INSTALL_DIR..."
+sudo cp bin/script_name.sh $INSTALL_DIR/script_name
+sudo chmod +x $INSTALL_DIR/script_name
+echo "package_name has been installed. You can now use the 'script_name' command."
+```
+
+### Uninstallation Script
+
+<Callout type="warning" emoji="⚠️">
+  Make sure to create an `uninstall.sh` file in the root directory. This file will be executed when the package is uninstalled.
+</Callout>
+
+<Callout type="error" emoji="️🚫">
+  Do not use `sudo rm *` as it can delete important user data.
+</Callout>
+
+```bash filename="uninstall.sh"
+#!/bin/bash
+
+# Move to the script's directory
+cd "$(dirname "$0")"
+
+# Installation directory
+INSTALL_DIR="/usr/local/bin"
+
+# Remove the executable file
+echo "Uninstalling script_name.sh from $INSTALL_DIR..."
+sudo rm $INSTALL_DIR/script_name
+echo "package_name has been uninstalled."
+```
+
+### Creating the Repository
+
+1. Create a new repository on GitHub, for example, `package_name`.
+2. Create the above file structure and push it to the repository.
+
+### Installing and Running the Demo Package
+
+Use `zshmgr` to install the demo package and verify that the `script_name` command works after installation.
+
+```bash
+zshmgr install user/package_name
+script_name
+```
+
+This ensures that the demo package is correctly installed and can be executed directly from the terminal.

@@ -1,0 +1,58 @@
+---
+title: パッケージの操作と管理
+---
+
+import { Tabs } from 'nextra/components'
+
+# パッケージの操作と管理
+
+### パッケージのインストール
+
+<Tabs items={["main", "demo"]} defaultIndex={0}>
+  <Tabs.Tab>
+    ```bash
+    zshmgr install <GitHubユーザー名/リポジトリ名>
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    zshmgr install fun117/zshmgr-demo-package
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### パッケージのアンインストール
+
+<Tabs items={["main", "demo"]} defaultIndex={0}>
+  <Tabs.Tab>
+    ```bash
+    zshmgr uninstall <GitHubユーザー名/リポジトリ名>
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    zshmgr uninstall fun117/zshmgr-demo-package
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### パッケージのアップデート
+
+<Tabs items={["main", "demo"]} defaultIndex={0}>
+  <Tabs.Tab>
+    ```bash
+    zshmgr update <GitHubユーザー名/リポジトリ名>
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    zshmgr update fun117/zshmgr-demo-package
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### インストール済みパッケージのリスト表示
+
+```bash
+zshmgr list
+```
