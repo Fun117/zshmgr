@@ -44,9 +44,9 @@ const themeConfig = {
     const title = useLocalesMap(titleMap);
     return (
       <>
-        <Logo height={12} />
+        <Logo height={30} />
         <span
-          className="mx-2 font-extrabold hidden md:inline select-none"
+          className="mx-2 font-extrabold italic hidden md:inline select-none"
           title={`${_config.title}: ${title}`}
         >
           {_config.title}

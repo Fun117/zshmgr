@@ -4,4 +4,9 @@ module.exports = {
     "./pages/**/*.{md,mdx}",
     "./theme.config.js",
   ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+  darkMode: "class",
 };

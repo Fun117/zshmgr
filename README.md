@@ -23,16 +23,10 @@
 
 ### インストール方法
 
-1. `zshmgr` リポジトリをクローンします：
+### `install.sh` スクリプトをダウンロードして実行します：
 
 ```bash
-git clone https://github.com/fun117/zshmgr.git
-cd zshmgr
-```
-
-2. `install.sh` スクリプトを実行して zshmgr をインストールします：
-
-```bash
+curl -O https://raw.githubusercontent.com/fun117/zshmgr/main/install.sh
 chmod +x install.sh
 ./install.sh
 ```

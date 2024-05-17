@@ -1,7 +1,8 @@
 {
   "index": {
     "title": "ホーム",
-    "type": "page"
+    "type": "page",
+    "display": "hidden"
   },
   "docs": {
     "title": "ドキュメント",
@@ -9,6 +10,9 @@
   },
   "about": {
     "title": "概要",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "typesetting": "article"
+    }
   }
 }
