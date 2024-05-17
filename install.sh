@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_URL="https://github.com/yourusername/zshmgr"
+REPO_URL="https://github.com/Fun117/zshmgr"
 INSTALL_DIR="${HOME}/.zshmgr"
 
 # Clone necessary files into a temporary directory
