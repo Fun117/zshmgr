@@ -13,15 +13,15 @@ export const languageMap = {
 
 /** @type {Readonly<Record<Locale, string>>} */
 export const titleMap = {
-  ja: "データ取得のための React Hooks ライブラリ",
-  "en-US": "React Hooks for Data Fetching",
+  ja: "Zsh用のシンプルなパッケージマネージャーです",
+  "en-US": "Simple package manager for Zsh.",
 };
 
 /** @type {Readonly<Record<Locale, string>>} */
 export const headDescriptionMap = {
-  ja: "SWRはデータフェッチ用のReact Hooksライブラリです。SWRはまずキャッシュからデータを返し（stale）、次にフェッチリクエストを送り（revalidate）、最後に再び最新のデータを持ってくる。",
+  ja: "Zshmgr は、Zsh用のシンプルなパッケージマネージャーです。ユーザーはパッケージのインストール、アンインストール、アップデート、リスト表示を簡単に行うことができます。このツールはGitHubリポジトリとシームレスに連携するように設計されており、Zshスクリプトやツールの管理が容易になります。",
   "en-US":
-    "SWR is a React Hooks library for data fetching. SWR first returns the data from cache (stale), then sends the fetch request (revalidate), and finally comes with the up-to-date data again.",
+    "Zshmgr is a simple package manager for Zsh. It allows users to easily install, uninstall, update, and list packages. The tool is designed to work seamlessly with GitHub repositories, making it easy to manage your Zsh scripts and tools.",
 };
 
 /** @type {Readonly<Record<Locale, string>>} */
