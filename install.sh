@@ -44,8 +44,11 @@ mkdir -p $INSTALL_DIR || cleanup_and_exit
 
 # Copy necessary files to the installation directory
 for file in "${FILES_TO_COPY[@]}"; do
-  cp $file $INSTALL_DIR/ || cleanup_and_exit
+  cp -r $file $INSTALL_DIR/ || cleanup_and_exit
 done
+
+# Copy configs folder to the installation directory
+cp -r configs $INSTALL_DIR/ || cleanup_and_exit
 
 # Create packages directory in the installation directory
 mkdir -p $INSTALL_DIR/packages || cleanup_and_exit
