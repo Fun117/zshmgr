@@ -1,0 +1,12 @@
+zshmgr - A simple package manager for Zsh
+
+Usage:
+  zshmgr {command} [options]
+
+Commands:
+  -v, version  - Show the version of zshmgr
+  -h, help     - Show this help message
+  install, i   - Install a package
+  uninstall    - Uninstall a package
+  update       - Update a package
+  list         - List installed packages

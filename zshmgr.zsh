@@ -1,10 +1,11 @@
 #!/bin/zsh
 
-# File for storing package information.
+VERSION="1.0.0"
+HELP_FILE="${HOME}/.zshmgr/configs/help.txt"
 PACKAGE_FILE="${HOME}/.zshmgr/packages.json"
 PACKAGE_DIR="${HOME}/.zshmgr/packages"
 
-# Loading package information
+# Load package information
 function load_packages() {
     if [[ -f $PACKAGE_FILE ]]; then
         packages=$(cat $PACKAGE_FILE)
@@ -13,12 +14,26 @@ function load_packages() {
     fi
 }
 
-# Storing package information
+# Save package information
 function save_packages() {
     echo $packages | jq '.' > $PACKAGE_FILE
 }
 
-# Installing packages
+# Show help message
+function show_help() {
+    if [[ -f $HELP_FILE ]]; then
+        cat $HELP_FILE
+    else
+        echo "Help file not found."
+    fi
+}
+
+# Show version
+function show_version() {
+    echo "zshmgr version $VERSION"
+}
+
+# Install packages
 function install_package() {
     local package_name=$1
     if [[ -z $package_name ]]; then
@@ -42,7 +57,7 @@ function install_package() {
     echo "$package_name has been installed."
 }
 
-# Uninstalling packages
+# Uninstall packages
 function uninstall_package() {
     local package_name=$1
     if [[ -z $package_name ]]; then
@@ -85,18 +100,24 @@ function update_package() {
     echo "$package_name has been updated."
 }
 
-# List view of installed packages
+# List installed packages
 function list_packages() {
     echo "Listing installed packages..."
     echo $packages | jq 'keys'
 }
 
-# main function
+# Main function
 function main() {
     local command=$1
     shift
     load_packages
     case "$command" in
+        -v | version)
+            show_version
+            ;;
+        -h | help)
+            show_help
+            ;;
         install | i)
             install_package $@
             ;;
@@ -110,7 +131,8 @@ function main() {
             list_packages
             ;;
         *)
-            echo "Usage: $0 {install|uninstall|update|list} [package_name]"
+            echo "Unknown command: $command"
+            show_help
             ;;
     esac
 }
