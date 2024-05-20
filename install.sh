@@ -1,25 +1,11 @@
 #!/bin/bash
 
-# Function to load configuration from config.json and expand ~ to $HOME
-function load_config() {
-  local config_file="/configs/config.json"
-  if [[ -f $config_file ]]; then
-    config_content=$(cat $config_file)
-    config_install_dir=$(echo $config_content | jq -r '.install_dir' | sed "s|~|$HOME|g")
-    config_bin_dir=$(echo $config_content | jq -r '.bin_dir')
-    config_command_name=$(echo $config_content | jq -r '.command_name')
-  else
-    echo "Configuration file not found."
-    exit 1
-  fi
-}
+REPO_URL="https://github.com/Fun117/zshmgr"
+BRANCH="alpha-202405202020"
 
-# Load configuration
-load_config
-
-INSTALL_DIR=$config_install_dir
-BIN_DIR=$config_bin_dir
-COMMAND_NAME=$config_command_name
+INSTALL_DIR="${HOME}/.zshmgr"
+BIN_FILE="zshmgr.zsh"
+COMMAND_NAME="zshmgr"
 
 # Function to clean up and exit with error
 function cleanup_and_exit {
