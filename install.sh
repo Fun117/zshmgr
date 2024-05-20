@@ -48,4 +48,7 @@ fi
 cd ~
 rm -rf $TEMP_DIR
 
+# Delete the install script
+rm -- "$0"
+
 echo "zshmgr has been installed successfully."
