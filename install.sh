@@ -2,7 +2,7 @@
 
 # Function to load configuration from config.json and expand ~ to $HOME
 function load_config() {
-  local config_file="${HOME}/.zshmgr/configs/config.json"
+  local config_file="/configs/config.json"
   if [[ -f $config_file ]]; then
     config_content=$(cat $config_file)
     config_install_dir=$(echo $config_content | jq -r '.install_dir' | sed "s|~|$HOME|g")
