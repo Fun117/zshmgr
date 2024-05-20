@@ -1,5 +1,6 @@
 {
   "introduction": "はじめに",
+  "commands": "コマンド",
   "packages": "パッケージの操作と管理",
   "-- Development": {
     "type": "separator",

@@ -1,0 +1,66 @@
+---
+title: コマンド
+image: /favicon/apple-touch-icon.png
+---
+
+import { Callout, Tabs } from 'nextra/components'
+
+# コマンド
+
+### バージョン
+
+このコマンドはパッケージマネージャーのバージョンを取得して表示します。
+
+<Tabs items={["基本", "省略"]} defaultIndex={0}>
+  <Tabs.Tab>
+```bash
+zshmgr -version
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```bash
+zshmgr -v
+```
+  </Tabs.Tab>
+</Tabs>
+
+### ヘルプ
+
+このコマンドはパッケージマネージャーのヘルプを取得して表示します。
+
+<Tabs items={["基本", "省略"]} defaultIndex={0}>
+  <Tabs.Tab>
+```bash
+zshmgr -help
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```bash
+zshmgr -h
+```
+  </Tabs.Tab>
+</Tabs>
+
+### アップデート
+
+このコマンドはパッケージマネージャーを最新のバージョンに強制的にアップデートします。
+
+<Callout type="warning" emoji="⚠️">
+  このパッケージマネージャーを使用してインストールしたパッケージ情報が削除される可能性があります。
+</Callout>
+
+```bash
+zshmgr -update
+```
+
+### アンインストール
+
+このコマンドはパッケージマネージャーを削除します。
+
+<Callout type="warning" emoji="⚠️">
+  パッケージマネージャーを削除してもインストールしたパッケージはシステムから削除されません。パッケージごとにアンインストールコマンドを実行する必要があります。
+</Callout>
+
+```bash
+zshmgr -uninstall
+```

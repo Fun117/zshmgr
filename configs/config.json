@@ -1,0 +1,9 @@
+{
+  "version": "0.0.1-alpha",
+  "help_file": "~/.zshmgr/configs/help.txt",
+  "package_file": "~/.zshmgr/packages.json",
+  "package_dir": "~/.zshmgr/packages",
+  "install_dir": "~/.zshmgr",
+  "bin_dir": "/usr/local/bin",
+  "command_name": "zshmgr"
+}
