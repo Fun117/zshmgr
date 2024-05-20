@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 VERSION="1.0.0"
-HELP_FILE="${HOME}/.zshmgr/help.txt"
+HELP_FILE="${HOME}/.zshmgr/configs/help.txt"
 
 PACKAGE_FILE="${HOME}/.zshmgr/packages.json"
 PACKAGE_DIR="${HOME}/.zshmgr/packages"
