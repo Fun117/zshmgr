@@ -1,6 +1,8 @@
 #!/bin/bash
 
 REPO_URL="https://github.com/Fun117/zshmgr"
+BRANCH="alpha-202405202020"
+
 INSTALL_DIR="${HOME}/.zshmgr"
 BIN_DIR="/usr/local/bin"
 BIN_FILE="zshmgr.zsh"
@@ -14,9 +16,9 @@ function cleanup_and_exit {
   exit 1
 }
 
-# Clone necessary files into a temporary directory
+# Clone necessary files into a temporary directory from the specified branch
 TEMP_DIR=$(mktemp -d)
-git clone --depth 1 $REPO_URL $TEMP_DIR || cleanup_and_exit
+git clone --depth 1 --branch $BRANCH $REPO_URL $TEMP_DIR || cleanup_and_exit
 cd $TEMP_DIR || cleanup_and_exit
 
 # Ensure that only the required files are copied
