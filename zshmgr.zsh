@@ -68,12 +68,12 @@ function update_zshmgr() {
     echo "zshmgr has been updated to the latest version."
 }
 
-# Remove zshmgr itself
-function remove_zshmgr() {
-    echo "Removing zshmgr..."
+# Uninstall zshmgr itself
+function uninstall_zshmgr() {
+    echo "Uninstall zshmgr..."
     rm -rf $INSTALL_DIR
     sudo rm -f $BIN_DIR/$COMMAND_NAME
-    echo "zshmgr has been removed."
+    echo "zshmgr has been uninstall."
 }
 
 # Install packages
@@ -164,8 +164,8 @@ function main() {
     -update)
         update_zshmgr
         ;;
-    -remove)
-        remove_zshmgr
+    -uninstall)
+        uninstall_zshmgr
         ;;
     install | i)
         install_package $@

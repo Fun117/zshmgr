@@ -1,5 +1,6 @@
 {
   "introduction": "Introduction",
+  "commands": "Commands",
   "packages": "Package Operations and Management",
   "-- Development": {
     "type": "separator",

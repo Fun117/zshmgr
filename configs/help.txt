@@ -7,7 +7,7 @@ Commands:
   zshmgr -v, zshmgr -version  - Show the version of zshmgr
   zshmgr -h, zshmgr -help     - Show this help message
   zshmgr -update              - Update zshmgr itself
-  zshmgr -remove              - Remove zshmgr itself
+  zshmgr -uninstall           - Uninstall zshmgr itself
   install, i <package>        - Install a package from GitHub (format: user/repo)
   uninstall <package>         - Uninstall a package (format: user/repo)
   update <package>            - Update a package (format: user/repo)

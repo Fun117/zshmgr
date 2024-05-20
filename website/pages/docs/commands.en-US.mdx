@@ -1,0 +1,66 @@
+---
+title: Commands
+image: /favicon/apple-touch-icon.png
+---
+
+import { Callout, Tabs } from 'nextra/components'
+
+# Commands
+
+### Version
+
+This command retrieves and displays the version of the package manager.
+
+<Tabs items={["Basic", "Shortcut"]} defaultIndex={0}>
+  <Tabs.Tab>
+```bash
+zshmgr -version
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```bash
+zshmgr -v
+```
+  </Tabs.Tab>
+</Tabs>
+
+### Help
+
+This command retrieves and displays the help information for the package manager.
+
+<Tabs items={["Basic", "Shortcut"]} defaultIndex={0}>
+  <Tabs.Tab>
+```bash
+zshmgr -help
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```bash
+zshmgr -h
+```
+  </Tabs.Tab>
+</Tabs>
+
+### Update
+
+This command forcibly updates the package manager to the latest version.
+
+<Callout type="warning" emoji="⚠️">
+  Using this command may remove package information installed using this package manager.
+</Callout>
+
+```bash
+zshmgr -update
+```
+
+### Uninstall
+
+This command removes the package manager.
+
+<Callout type="warning" emoji="⚠️">
+  Uninstalling the package manager does not remove installed packages from the system. You need to execute the uninstall command for each package individually.
+</Callout>
+
+```bash
+zshmgr -uninstall
+```
