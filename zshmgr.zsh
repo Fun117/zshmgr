@@ -1,13 +1,33 @@
 #!/bin/zsh
 
-VERSION="1.0.0"
-HELP_FILE="${HOME}/.zshmgr/configs/help.txt"
+# Function to load configuration from config.json and expand ~ to $HOME
+function load_config() {
+    local config_file="${HOME}/.zshmgr/configs/config.json"
+    if [[ -f $config_file ]]; then
+        config_content=$(cat $config_file)
+        config_version=$(echo $config_content | jq -r '.version')
+        config_help_file=$(echo $config_content | jq -r '.help_file' | sed "s|~|$HOME|g")
+        config_package_file=$(echo $config_content | jq -r '.package_file' | sed "s|~|$HOME|g")
+        config_package_dir=$(echo $config_content | jq -r '.package_dir' | sed "s|~|$HOME|g")
+        config_install_dir=$(echo $config_content | jq -r '.install_dir' | sed "s|~|$HOME|g")
+        config_bin_dir=$(echo $config_content | jq -r '.bin_dir')
+        config_command_name=$(echo $config_content | jq -r '.command_name')
+    else
+        echo "Configuration file not found."
+        exit 1
+    fi
+}
 
-PACKAGE_FILE="${HOME}/.zshmgr/packages.json"
-PACKAGE_DIR="${HOME}/.zshmgr/packages"
-INSTALL_DIR="${HOME}/.zshmgr"
-BIN_DIR="/usr/local/bin"
-COMMAND_NAME="zshmgr"
+# Load configuration
+load_config
+
+VERSION=$config_version
+HELP_FILE=$config_help_file
+PACKAGE_FILE=$config_package_file
+PACKAGE_DIR=$config_package_dir
+INSTALL_DIR=$config_install_dir
+BIN_DIR=$config_bin_dir
+COMMAND_NAME=$config_command_name
 
 # Load package information
 function load_packages() {
@@ -20,7 +40,7 @@ function load_packages() {
 
 # Save package information
 function save_packages() {
-    echo $packages | jq '.' > $PACKAGE_FILE
+    echo $packages | jq '.' >$PACKAGE_FILE
 }
 
 # Show help message
@@ -135,34 +155,34 @@ function main() {
     shift
     load_packages
     case "$command" in
-        "mgr -h" | "mgr -help")
-            show_help
-            ;;
-        "mgr -v" | "mgr -version")
-            show_version
-            ;;
-        "mgr -update")
-            update_zshmgr
-            ;;
-        "mgr -remove")
-            remove_zshmgr
-            ;;
-        install | i)
-            install_package $@
-            ;;
-        uninstall)
-            uninstall_package $@
-            ;;
-        update)
-            update_package $@
-            ;;
-        list)
-            list_packages
-            ;;
-        *)
-            echo "Unknown command: $command"
-            show_help
-            ;;
+    -help | -h)
+        show_help
+        ;;
+    -version | -v)
+        show_version
+        ;;
+    -update)
+        update_zshmgr
+        ;;
+    -remove)
+        remove_zshmgr
+        ;;
+    install | i)
+        install_package $@
+        ;;
+    uninstall)
+        uninstall_package $@
+        ;;
+    update)
+        update_package $@
+        ;;
+    list)
+        list_packages
+        ;;
+    *)
+        echo "Unknown command: $command"
+        show_help
+        ;;
     esac
 }
 
