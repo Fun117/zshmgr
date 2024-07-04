@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPO_URL="https://github.com/Fun117/zshmgr"
-BRANCH="0.0.1-beta"
+BRANCH="main"
 
 INSTALL_DIR="${HOME}/.zshmgr"
 BIN_FILE="zshmgr.zsh"
