@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# Detect OS
+OS=$(uname -s)
+
 # Function to load configuration from config.json and expand ~ to $HOME
 function load_config() {
     local config_file="${HOME}/.zshmgr/configs/config.json"
