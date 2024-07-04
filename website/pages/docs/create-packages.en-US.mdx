@@ -43,7 +43,18 @@ echo "Hello from package_name!"
 cd "$(dirname "$0")"
 
 # Installation directory
-INSTALL_DIR="/usr/local/bin"
+case $OS in
+Linux* | Darwin*)
+  INSTALL_DIR="/usr/local/bin"
+  ;;
+MINGW* | MSYS* | CYGWIN*)
+  INSTALL_DIR="/usr/bin"
+  ;;
+*)
+  echo "Unsupported OS: $OS"
+  exit 1
+  ;;
+esac
 
 # Copy the executable file
 echo "Installing script_name.sh to $INSTALL_DIR..."
@@ -69,7 +80,18 @@ echo "package_name has been installed. You can now use the 'script_name' command
 cd "$(dirname "$0")"
 
 # Installation directory
-INSTALL_DIR="/usr/local/bin"
+case $OS in
+Linux* | Darwin*)
+  INSTALL_DIR="/usr/local/bin"
+  ;;
+MINGW* | MSYS* | CYGWIN*)
+  INSTALL_DIR="/usr/bin"
+  ;;
+*)
+  echo "Unsupported OS: $OS"
+  exit 1
+  ;;
+esac
 
 # Remove the executable file
 echo "Uninstalling script_name.sh from $INSTALL_DIR..."

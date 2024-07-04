@@ -10,7 +10,6 @@ function load_config() {
         config_package_file=$(echo $config_content | jq -r '.package_file' | sed "s|~|$HOME|g")
         config_package_dir=$(echo $config_content | jq -r '.package_dir' | sed "s|~|$HOME|g")
         config_install_dir=$(echo $config_content | jq -r '.install_dir' | sed "s|~|$HOME|g")
-        config_bin_dir=$(echo $config_content | jq -r '.bin_dir')
         config_command_name=$(echo $config_content | jq -r '.command_name')
     else
         echo "Configuration file not found."
@@ -26,8 +25,20 @@ HELP_FILE=$config_help_file
 PACKAGE_FILE=$config_package_file
 PACKAGE_DIR=$config_package_dir
 INSTALL_DIR=$config_install_dir
-BIN_DIR=$config_bin_dir
 COMMAND_NAME=$config_command_name
+
+case $OS in
+Linux* | Darwin*)
+  BIN_DIR="/usr/local/bin"
+  ;;
+MINGW* | MSYS* | CYGWIN*)
+  BIN_DIR="/usr/bin"
+  ;;
+*)
+  echo "Unsupported OS: $OS"
+  exit 1
+  ;;
+esac
 
 # Load package information
 function load_packages() {
