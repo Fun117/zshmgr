@@ -39,11 +39,25 @@ echo "package_name からこんにちは!"
 ```bash filename="install.sh"
 #!/bin/bash
 
+# OSを検出
+OS=$(uname -s)
+
 # スクリプトのディレクトリに移動
 cd "$(dirname "$0")"
 
 # インストールディレクトリ
-INSTALL_DIR="/usr/local/bin"
+case $OS in
+Linux* | Darwin*)
+  INSTALL_DIR="/usr/local/bin"
+  ;;
+MINGW* | MSYS* | CYGWIN*)
+  INSTALL_DIR="/usr/bin"
+  ;;
+*)
+  echo "Unsupported OS: $OS"
+  exit 1
+  ;;
+esac
 
 # 実行可能ファイルをコピー
 echo "Installing script_name.sh to $INSTALL_DIR..."
@@ -65,11 +79,25 @@ echo "package_name has been installed. You can now use the 'script_name' command
 ```bash filename="uninstall.sh"
 #!/bin/bash
 
+# OSを検出
+OS=$(uname -s)
+
 # スクリプトのディレクトリに移動
 cd "$(dirname "$0")"
 
 # インストールディレクトリ
-INSTALL_DIR="/usr/local/bin"
+case $OS in
+Linux* | Darwin*)
+  INSTALL_DIR="/usr/local/bin"
+  ;;
+MINGW* | MSYS* | CYGWIN*)
+  INSTALL_DIR="/usr/bin"
+  ;;
+*)
+  echo "Unsupported OS: $OS"
+  exit 1
+  ;;
+esac
 
 # 実行可能ファイルを削除
 echo "Uninstalling script_name.sh from $INSTALL_DIR..."
